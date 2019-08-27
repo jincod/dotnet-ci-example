@@ -17,3 +17,5 @@ jobs:
       run: dotnet build --configuration Release
     - name: Nuget pack
       run: ./scripts/deploy.sh dotnet-ci-example.csproj
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
