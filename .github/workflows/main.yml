@@ -16,4 +16,4 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: Nuget pack
-      run: ./deploy.sh dotnet-ci-example.csproj
+      run: ./scripts/deploy.sh dotnet-ci-example.csproj
