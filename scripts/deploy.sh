@@ -13,6 +13,8 @@ if [ $status_code = 200 ]; then
 else
     echo "publish..."
     dotnet pack $project_file --configuration Release --output "${PWD}"
-    nuget source Add -Name "GitHub nuget registry" -Source "https://nuget.pkg.github.com/jincod/index.json" -UserName jincod -Password $GITHUB_TOKEN
+    NUGET_CONFIG=`cat nuget.config`
+    NUGET_CONFIG="${NUGET_CONFIG//GITHUB_TOKEN/$GITHUB_TOKEN}"
+    echo $NUGET_CONFIG > nuget.config
     dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/jincod/index.json
 fi
