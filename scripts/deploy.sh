@@ -6,12 +6,13 @@ project_file=$1
 project_name=$(basename $project_file .csproj)
 
 package_version=$(cat $project_file | grep -oP '<PackageVersion>(.*)<\/PackageVersion>' | sed "s/<PackageVersion>\|<\/PackageVersion>//g")
-status_code=$(curl -s -o /dev/null -I -w "%{http_code}" https://api.nuget.org/v3/registration3/${project_name,,}/$package_version.json)
+status_code=$(curl -s -o /dev/null -I -w "%{http_code}" https://nuget.pkg.github.com/jincod/${project_name,,}/$package_version.json)
 
 if [ $status_code = 200 ]; then
     echo "skip..."
 else
     echo "publish..."
     dotnet pack $project_file --configuration Release --output "${PWD}"
-    dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://www.nuget.org/api/v2/package
+    nuget source Add -Name "GitHub nuget registry" -Source "https://nuget.pkg.github.com/jincod/index.json" -UserName jincod -Password $GITHUB_TOKEN
+    dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/jincod/index.json
 fi
