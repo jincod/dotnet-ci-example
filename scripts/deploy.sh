@@ -8,6 +8,9 @@ project_name=$(basename $project_file .csproj)
 package_version=$(cat $project_file | grep -oP '<PackageVersion>(.*)<\/PackageVersion>' | sed "s/<PackageVersion>\|<\/PackageVersion>//g")
 status_code=$(curl -s -o /dev/null -I -w "%{http_code}" https://nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json)
 
+echo "https://nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json"
+echo $status_code
+
 if [ $status_code = 200 ]; then
     echo "skip..."
 else
