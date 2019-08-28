@@ -5,4 +5,15 @@
     <RootNamespace>dotnet_ci_example</RootNamespace>
   </PropertyGroup>
 
+   <PropertyGroup>
+    <PackageId>dotnet-ci-example</PackageId>
+    <PackageVersion>1.0.1-alpha</PackageVersion>
+    <Authors>Vadim Abdrashitov</Authors>
+    <Description>Test project</Description>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jincod/dotnet-ci-example</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>example</PackageTags>
+  </PropertyGroup>
+
 </Project>

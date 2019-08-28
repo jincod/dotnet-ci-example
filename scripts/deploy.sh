@@ -14,7 +14,7 @@ else
     echo "publish..."
     dotnet pack $project_file --configuration Release --output "${PWD}"
     NUGET_CONFIG=`cat nuget.config`
-    NUGET_CONFIG="${NUGET_CONFIG//GITHUB_TOKEN/$GITHUB_TOKEN}"
+    NUGET_CONFIG="${NUGET_CONFIG//GITHUB_TOKEN/$GITHUB_TOKEN_2}"
     NUGET_CONFIG="${NUGET_CONFIG//GITHUB_ACTOR/$GITHUB_ACTOR}"
     echo $NUGET_CONFIG > nuget.config
     cat nuget.config
