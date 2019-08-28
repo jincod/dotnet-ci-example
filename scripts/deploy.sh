@@ -16,6 +16,5 @@ else
     NUGET_CONFIG=`cat nuget.config`
     NUGET_CONFIG="${NUGET_CONFIG//GITHUB_TOKEN/$GITHUB_TOKEN}"
     echo $NUGET_CONFIG > nuget.config
-    cat nuget.config
-    dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/jincod/index.json
+    dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/jincod/index.json -k GitHubPackageRegistry
 fi
