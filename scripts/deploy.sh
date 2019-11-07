@@ -12,6 +12,8 @@ echo "https://nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_vers
 echo $package_version
 echo $status_code
 
+curl -I "https://$GITHUB_ACTOR:$GITHUB_TOKEN_2@nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json"
+
 if [ $status_code = 200 ]; then
     echo "skip..."
 else
