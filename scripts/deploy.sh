@@ -11,8 +11,10 @@ status_code=$(curl -s -o /dev/null -I -w "%{http_code}" https://$GITHUB_ACTOR:$G
 echo "https://nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json"
 echo $package_version
 echo $status_code
+echo $GITHUB_ACTOR
+echo $GITHUB_TOKEN_2
 
-curl -I "https://$GITHUB_ACTOR:$GITHUB_TOKEN_2@nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json"
+curl -I "https://${GITHUB_ACTOR}:${GITHUB_TOKEN_2}@nuget.pkg.github.com/$GITHUB_ACTOR/${project_name,,}/$package_version.json"
 
 if [ $status_code = 200 ]; then
     echo "skip..."
