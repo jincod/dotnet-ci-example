@@ -19,4 +19,3 @@ jobs:
       run: ./scripts/deploy.sh dotnet-ci-example.csproj
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_TOKEN_2: ${{ secrets.GITHUB_TOKEN_2 }}
