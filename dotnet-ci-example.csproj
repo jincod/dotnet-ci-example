@@ -7,10 +7,11 @@
 
    <PropertyGroup>
     <PackageId>dotnet-ci-example</PackageId>
-    <PackageVersion>1.0.8-alpha</PackageVersion>
+    <PackageVersion>1.0.9-alpha</PackageVersion>
     <Authors>Vadim Abdrashitov</Authors>
     <Description>Test project</Description>
     <PackageProjectUrl>https://github.com/jincod/dotnet-ci-example</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jincod/dotnet-ci-example</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>example</PackageTags>
