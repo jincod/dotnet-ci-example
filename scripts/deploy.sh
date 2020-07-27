@@ -20,5 +20,5 @@ else
     NUGET_CONFIG="${NUGET_CONFIG//GITHUB_TOKEN/$GITHUB_TOKEN}"
     NUGET_CONFIG="${NUGET_CONFIG//GITHUB_ACTOR/$GITHUB_ACTOR}"
     echo $NUGET_CONFIG > nuget.config
-    dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/$GITHUB_ACTOR/index.json -k GitHubPackageRegistry
+    dotnet nuget push *.nupkg -s GitHubPackageRegistry
 fi
